@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #e8e8e8;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.calculator {
+  background: #1a1a1a;
+  border-radius: 24px;
+  padding: 24px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+// Algoritme knoppen
+.algorithms {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+
+  button {
+    background: #2a2a2a;
+    color: #aaa;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 4px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &.active {
+      background: #ff9f0a;
+      color: #000;
+      font-weight: 700;
+    }
+
+    &:hover:not(.active) {
+      background: #333;
+      color: #fff;
+    }
+  }
+}
+
+// Display
+.display {
+  background: #000;
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .array {
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: monospace;
+    text-align: right;
+    word-break: break-all;
+    line-height: 1.6;
+  }
+
+  .placeholder {
+    color: #444;
+    font-size: 0.9rem;
+  }
+}
+
+// Input rij
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+
+  input {
+    background: #2a2a2a;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 16px;
+    text-align: right;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      background: #333;
+    }
+
+    // verberg de pijltjes
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  .btn-add {
+    background: #ff9f0a;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 56px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+// Clear knop
+.btn-clear {
+  background: #2a2a2a;
+  color: #aaa;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+
+  &:hover {
+    background: #333;
+    color: #fff;
+  }
+}
+
+// Complexiteit
+.complexity {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  > span {
+    color: #ff9f0a;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+}
+
+.complexity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.complexity-item {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+
+  p {
+    color: #666;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  strong {
+    color: #fff;
+    font-size: 0.75rem;
+    font-family: monospace;
+  }
+}

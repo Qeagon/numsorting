@@ -1,0 +1,60 @@
+<main>
+  <div class="calculator">
+
+    <h1>Array Sorter</h1>
+
+    <!-- Algoritme knoppen -->
+    <div class="algorithms">
+      @for (algo of algorithms; track algo) {
+        <button
+          [class.active]="algo === selectedAlgorithm"
+          (click)="selectAlgorithm(algo)">
+          {{ algo }}
+        </button>
+      }
+    </div>
+
+    <!-- Array display -->
+    <div class="display">
+      @if (result) {
+        <span class="array">{{ result.sorted }}</span>
+      } @else {
+        <span class="placeholder">voer een getal in...</span>
+      }
+    </div>
+
+    <!-- Input -->
+    <div class="input-row">
+      <input
+        type="number"
+        [(ngModel)]="inputValue"
+        (keydown.enter)="addNumber()"
+        placeholder="0" />
+      <button class="btn-add" (click)="addNumber()">+</button>
+    </div>
+
+    <button class="btn-clear" (click)="clearArray()">clear</button>
+
+    <!-- Complexiteit -->
+    @if (result) {
+      <div class="complexity">
+        <span>{{ result.algorithm }}</span>
+        <div class="complexity-grid">
+          <div class="complexity-item">
+            <p>best</p>
+            <strong>{{ result.timeComplexity.best }}</strong>
+          </div>
+          <div class="complexity-item">
+            <p>average</p>
+            <strong>{{ result.timeComplexity.average }}</strong>
+          </div>
+          <div class="complexity-item">
+            <p>worst</p>
+            <strong>{{ result.timeComplexity.worst }}</strong>
+          </div>
+        </div>
+      </div>
+    }
+
+  </div>
+</main>
